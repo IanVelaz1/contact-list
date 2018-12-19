@@ -27,9 +27,15 @@
         <script>
             let elemento=document.querySelector("contact-list");
             elemento.set("userList",[
-              {name:"jansolote",age:30,image:"https://media.comicbook.com/2018/09/eren-jaeger-attack-on-titan-1132040-1280x0.jpeg",status:"on"}
+              {name:"jansolote",age:30,image:"https://media.comicbook.com/2018/09/eren-jaeger-attack-on-titan-1132040-1280x0.jpeg",status:"on"},
+              {name:"jusolete",age:30,image:"https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcGpaOA1dKX2QPzZF8Gu5V.yix_.tnGVuKGkcjkv953ApRxqKOL2Xb3dIfyZ4EkwSoOtiFDsN51r4BUfGA8Xc0r341d6WUQL2L2L6gRmhUSiawn9jqcdAtZazFM.xkVOardz1MIrRVzthHQ3_aj98E1ypoGT95tIQkYq9oYQWAwlE-&h=1080&w=1920&format=jpg",status:"on"}
               
             ]);
+            elemento.addEventListener("show-user",(event)=>{
+               const usuario=event;
+               console.log(usuario);
+               
+            });
            </script>
       </demo-snippet>
     </div>
