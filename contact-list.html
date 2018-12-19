@@ -14,12 +14,15 @@
         height: 200px;
       }
       }
+      .off{
+
+      }
       
     </style>
     <h4>hay [[listSize]] conectado</h4>
     <dom-repeat items=[[userList]] as="user">
       <template>
-        <paper-card image="[[user.image]]">
+        <paper-card image="[[user.image]]" class$="[[user.status]]">
           <div class="card-content">
               <h2>[[user.name]]</h2>
               <h2>[[user.age]]</h2>
@@ -59,7 +62,13 @@
         return this.userList.filter(user=>user.status==="on").length
       }
       showUserInfo(event){
-        console.table(event.model.user)
+        //////cuando no haya usuarios conectados mostrar una imagen que lo refleje
+        
+        this.dispatchEvent(new CustomEvent("show-user",{
+          bubbles:false,//////sigue propagacion hacia arriba
+          composed:true,
+          detail:event.model.user
+        }))
       }
     }
 
