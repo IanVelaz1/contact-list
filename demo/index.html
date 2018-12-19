@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>contact-list demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../contact-list.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic contact-list demo</h3>
+      <demo-snippet>
+        <template>
+          <contact-list></contact-list>
+        </template>
+        <script>
+            let elemento=document.querySelector("contact-list");
+            elemento.set("userList",[
+              {name:"jansolote",age:30,image:"https://media.comicbook.com/2018/09/eren-jaeger-attack-on-titan-1132040-1280x0.jpeg",status:"on"}
+              
+            ]);
+           </script>
+      </demo-snippet>
+    </div>
+    
+  </body>
+</html>

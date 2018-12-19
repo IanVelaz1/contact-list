@@ -1,0 +1,68 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<dom-module id="contact-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-card{
+        --paper-card-header-image: {
+        height: 200px;
+      }
+      }
+      
+    </style>
+    <h4>hay [[listSize]] conectado</h4>
+    <dom-repeat items=[[userList]] as="user">
+      <template>
+        <paper-card image="[[user.image]]">
+          <div class="card-content">
+              <h2>[[user.name]]</h2>
+              <h2>[[user.age]]</h2>
+              <paper-button on-tap="showUserInfo">User info</paper-button>
+          </div>
+            
+        </paper-card>
+      </template>
+    </dom-repeat>
+    
+  </template>
+
+  <script>
+    /**
+     * `contact-list`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ContactList extends Polymer.Element {
+      static get is() { return 'contact-list'; }
+      static get properties() {
+        return {
+          userList:{
+            type:Array,
+            value:[]
+          },
+          listSize:{
+            type:Number,
+            computed:"_listSize(userList)"
+          }
+        };
+      }
+      _listSize(){
+        return this.userList.filter(user=>user.status==="on").length
+      }
+      showUserInfo(event){
+        console.table(event.model.user)
+      }
+    }
+
+    window.customElements.define(ContactList.is, ContactList);
+  </script>
+</dom-module>
